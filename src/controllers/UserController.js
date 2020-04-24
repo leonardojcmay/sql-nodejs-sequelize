@@ -1,6 +1,14 @@
 const User = require('../models/User');
 
 module.exports = {
+
+    // listando todos os usuarios
+    async index(req, res) {
+        const users = await User.findAll();
+
+        return res.json(users);
+    },
+
     // metodo store para armazenar um usuario
     async store(req, res) {
         // enviando name e email na requisição

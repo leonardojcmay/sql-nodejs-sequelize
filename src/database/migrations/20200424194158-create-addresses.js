@@ -3,19 +3,32 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('addresses', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false, // nao pode ser nulo
       },
-      name: {
+      zipcode: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
+      // Um usuario pode ter varios endereços
+      // O endereço só pode ter um usuario
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'users', key: 'id' }, // Vai criar uma ForeignKey no banco de dados
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
+      street: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      number: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       created_at: {
@@ -32,8 +45,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-
-    return queryInterface.dropTable('users');
-
+    return queryInterface.dropTable('addresses');
   }
 };

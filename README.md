@@ -32,3 +32,12 @@ Desfazendo a ultima migrate:
 yarn sequelize db:migrate:undo
 ```
 
+Feito cadastro de usuarios
+
+Relacionamentos de tabelas
+
+usuario pode ter varios endereços
+um para muitos
+
+um usuario pode ter muitos endereços
+
