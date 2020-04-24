@@ -2,6 +2,7 @@ const express = require('express');
 const UserController = require('./controllers/UserController');
 const AddressController = require('./controllers/AddressController');
 const TechController = require('./controllers/TechController');
+const ReportController = require('./controllers/ReportController');
 
 const routes = express.Router();
 
@@ -21,6 +22,9 @@ routes.get('/user/:user_id/techs', TechController.index);
 routes.post('/user/:user_id/techs', TechController.store);
 // Rota de deletar uma tech
 routes.delete('/user/:user_id/techs', TechController.delete);
+
+// Rota para relatorio
+routes.get('/report', ReportController.show);
 
 
 module.exports = routes;

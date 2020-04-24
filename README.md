@@ -10,7 +10,7 @@ yarn add nodemon -D
 ```
 
 Documentação sequelize:
-https://sequelize.org/v5/
+https://sequelize.org/master/manual/getting-started.html
 
 Crianda database:
 ```
@@ -48,4 +48,18 @@ yarn sequelize migration:create --name=create-addresses
 
 Relacionamento muitos para muitos
 armazenar tecnologias que um usuario trabalha
+
+Criando tabela de techs
+```
+yarn sequelize migration:create --name=create-techs
+
+yarn sequelize migration:create --name=create-user_techs
+```
+
+Ajusta todos os dados no arquivo criado e depois rodar o comando:
+```
+yarn sequelize db:migrate
+```
+
+Querys mais complexas
 
