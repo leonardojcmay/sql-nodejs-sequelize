@@ -1,6 +1,6 @@
 **<h1>SQL no Node.js com Sequelize</h1>**
 
-Iniciando projeto:
+**Iniciando projeto:**
 ```
 yarn add express pg pg-hstore sequelize
 
@@ -9,20 +9,20 @@ yarn add sequelize-cli -D
 yarn add nodemon -D
 ```
 
-Documentação sequelize:
+**Documentação sequelize:**
 https://sequelize.org/master/manual/getting-started.html
 
-Crianda database:
+**Crianda database:**
 ```
 yarn sequelize db:create
 ```
 
-Criando tabela users:
+**Criando tabela users:**
 ```
 yarn sequelize migration:create --name=create-users
 ```
 
-Ajusta todos os dados no arquivo criado e depois rodar o comando:
+Ajustar todos os dados no arquivo criado e depois rodar o comando:
 ```
 yarn sequelize db:migrate
 ```
@@ -32,24 +32,17 @@ Desfazendo a ultima migrate:
 yarn sequelize db:migrate:undo
 ```
 
-Feito cadastro de usuarios
+**Tabelas banco de dados:**
+<br>- addresses
+<br>- techs
+<br>- users
+<br>- user_techs
 
-Relacionamentos de tabelas
+**Relacionamentos de tabelas:**
+<br>**OneToMany:** User pode ter muitos Addresses
+<br>**ManyToMany:** Uma Tech pode ter muitos Users / Um User pode ter muitas Techs
 
-usuario pode ter varios endereços
-um para muitos
-
-um usuario pode ter muitos endereços
-
-Criando tabela de endereços:
-```
-yarn sequelize migration:create --name=create-addresses
-```
-
-Relacionamento muitos para muitos
-armazenar tecnologias que um usuario trabalha
-
-Criando tabela de techs
+**Criando tabela de techs e user_techs:**
 ```
 yarn sequelize migration:create --name=create-techs
 
@@ -61,5 +54,8 @@ Ajusta todos os dados no arquivo criado e depois rodar o comando:
 yarn sequelize db:migrate
 ```
 
-Querys mais complexas
+**ReportController.js:** gerado um relatório utilizando Query.
 
+Encontrar todos os usuarios que tem email que termina com @xxx.com.br
+<br>Desses usuarios eu quero buscar todos que moram na rua "Rua xxx"
+<br>Desses usuarios eu quero buscar as tecnologias que começam com React

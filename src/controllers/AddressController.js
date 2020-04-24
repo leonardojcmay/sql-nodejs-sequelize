@@ -17,7 +17,7 @@ module.exports = {
         // return res.json(user.address);
     },
 
-    // metodo store para armazenar um endereço
+    //metodo store para armazenar um endereço
     async store(req, res) {
         // pegando id do usuario
         const { user_id } = req.params;
