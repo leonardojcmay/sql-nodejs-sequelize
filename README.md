@@ -41,3 +41,11 @@ um para muitos
 
 um usuario pode ter muitos endereços
 
+Criando tabela de endereços:
+```
+yarn sequelize migration:create --name=create-addresses
+```
+
+Relacionamento muitos para muitos
+armazenar tecnologias que um usuario trabalha
+

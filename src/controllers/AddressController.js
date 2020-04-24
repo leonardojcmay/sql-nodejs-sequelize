@@ -12,9 +12,9 @@ module.exports = {
             include: { association: 'addresses' }
         });
 
-        //const addresses = await Address.findAll({ where: { user_id } })
-
         return res.json(user);
+        // retornando apenas os endereços do usuario. Nao trazendo informaçoes do User
+        // return res.json(user.address);
     },
 
     // metodo store para armazenar um endereço
