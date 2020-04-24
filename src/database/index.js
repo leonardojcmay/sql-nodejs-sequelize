@@ -12,6 +12,7 @@ User.init(connection);
 Address.init(connection);
 
 // associando as duas tabelas users e addresses
+User.associate(connection.models);
 Address.associate(connection.models);
 
 module.exports = connection;

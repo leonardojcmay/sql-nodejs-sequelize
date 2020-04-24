@@ -9,6 +9,8 @@ routes.get('/users', UserController.index);
 // Rota de cadastro de usuarios
 routes.post('/users', UserController.store);
 
+// Listando endereços especificos de um usuario
+routes.get('/user/:user_id/addresses', AddressController.index);
 // Rota de cadastro de endereços
 routes.post('/user/:user_id/addresses', AddressController.store);
 

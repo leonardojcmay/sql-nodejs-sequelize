@@ -10,6 +10,11 @@ class User extends Model {
                 sequelize
             })
     }
+
+    // criando um relacionamento entre as tabelas users e addresses
+    static associate(models) {
+        this.hasMany(models.Address, { foreignKey: 'user_id', as: 'addresses' }) // hasMany: diz que o usuario tem muitos endereços
+    }
 }
 
 module.exports = User;

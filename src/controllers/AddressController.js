@@ -2,6 +2,21 @@ const User = require('../models/User');
 const Address = require('../models/Address');
 
 module.exports = {
+
+    // listando todos os endereços de um usuario
+    async index(req, res) {
+        const { user_id } = req.params;
+
+        // verificando se usuario existe e ja buscando a addresses do user
+        const user = await User.findByPk(user_id, {
+            include: { association: 'addresses' }
+        });
+
+        //const addresses = await Address.findAll({ where: { user_id } })
+
+        return res.json(user);
+    },
+
     // metodo store para armazenar um endereço
     async store(req, res) {
         // pegando id do usuario
